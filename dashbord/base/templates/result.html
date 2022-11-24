@@ -1,0 +1,34 @@
+<h1>Vous avez choisi la ville : {{city}}</h1>
+<h3>Le nombre d’hosst et le nombre de review par quartier : </h3> 
+{{q1|safe}}
+
+
+<h3>Le pourcentage d’acceptation moyen : {{accept_rate}} %</h3>
+<h3>et Le pourcentage de réponse moyen des hosts : {{response_rate}} %</h3>
+
+
+<h3>
+    <ul>
+    <li> Il y a {{mail}} personnes qui utilise un email pour la vérification soit {{email_pourcent}} % </li>
+    <li> Il y a {{phone}} personnes qui utilise un téléphone pour la vérification soit {{phone_pourcent}} % </li>
+    <li> Il y a {{work}} personnes qui utilise un email pro pour la vérification soit {{work_pourcent}} % </li>
+    <li> Il y a {{vide}} personnes qui n'ont pas  pour la vérification soit {{vide_pourcent}} % </li>
+    </ul>
+</h3>
+
+
+<h3>En fonction du type de room, le nombre moyen d’amenities et l'écart type :</h3>
+{{amenities|safe}}
+
+<h3>Le prix median par type de room, le maximum, le minimum, le premier et le troisième quartile :</h3>
+{{q5|safe}}
+
+<h3>Par valeur de salle de bain :</h3>
+{{q6|safe}}
+
+
+<h3>La corrélation entre le nombre de reviews et la taille de la description en terme de nombre de caractères : {{}}</h3>
+
+
+
+<h3>Le pourcentage général de séjour où le nom de l'host est identique au nom du reviewer</h3>
