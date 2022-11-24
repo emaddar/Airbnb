@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+<div class='container' >
+<h1 style="color:rgb(44, 44, 90); font-weight: 700;">
+  <i class="fa-solid fa-user-plus"></i> Create Account 
+</h1>
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+
+      <label for="{{form.username.id_for_label}}" class="form-label">Username</label>
+
+        {{form.username|add_class:"form-control"}}
+    </div>
+    
+    <div class="mb-3">
+        <label for="{{form.password1.id_for_label}}" class="form-label">Password</label>
+        {{form.password1|add_class:"form-control"}}
+        <div align="left"  <small style="color: grey">{{form.password1.help_text}}</small> </div>
+        
+    </div>
+
+    <div class="mb-3">
+        <label for="{{form.password2.id_for_label}}" class="form-label">Confirm Password</label>
+        {{form.password2|add_class:"form-control"}}
+        {% comment %} <div  align="left" id="emailHelp" class="form-text">{{form.password2.help_text}}</div> {% endcomment %}
+        <div align="left"  <small style="color: grey">{{form.password2.help_text}}</small> </div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="{{form.password2.id_for_label}}" class="form-label">Your email</label>
+      {{form.email|add_class:"form-control"}}
+      {% comment %} <div  align="left" id="emailHelp" class="form-text">{{form.password2.help_text}}</div> {% endcomment %}
+      {% comment %} <div align="left"  <small style="color: grey">{{form.email.help_text}}</small> </div> {% endcomment %}
+      <div align="left"  <small style="color: grey">Please enter a valid email address.</small> </div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="{{form.password2.id_for_label}}" class="form-label">Your country</label>
+      {{form.last_name|add_class:"form-control"}}
+      {% comment %} <div  align="left" id="emailHelp" class="form-text">{{form.password2.help_text}}</div> {% endcomment %}
+      {% comment %} <div align="left"  <small style="color: grey">{{form.email.help_text}}</small> </div> {% endcomment %}
+      <div align="left"  <small style="color: grey">Please enter your country.</small> </div>
+    </div>
+
+
+  
+  {% for field in form %}
+      <p>
+          {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+  {% endfor %}
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
+{% endblock content %}

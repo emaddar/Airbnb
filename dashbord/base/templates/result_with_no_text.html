@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  
+
+  <h1 style="color:rgb(187, 4, 26); font-weight: 700;">
+    <i class="fa-solid fa-heart-crack"></i>
+  </h1>
+
+  <h1 style="color:rgb(187, 4, 26); font-weight: 700;">
+   Oooops
+  </h1>
+  <h3 style="color: red;">You have no access to the report of this city :</h3>
+  <h4>{{city}}</h4>
+  <h5 style="color: red;">You only have access to cities of your country : {{request.user.last_name}}</h3>
+
+  
+
+
+
+
+
+
+{% endblock content %}
