@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div align="left" >
+{% comment %} <div align="left" >
     <ul>
         <li>Paris</li>
         <li>Lyon</li>
@@ -9,5 +9,39 @@
         <li>PB</li>
 
     </ul>
+</div> {% endcomment %}
+
+
+
+<form action="result">
+    {% csrf_token %}
+    <div class="row g-2">
+
+
+              
+                  <!-- Ville -->
+                <div class="col-md">
+                  <div class="form-floating">
+                    <label for="floatingInputGrid">Ville : </label>
+                    <select class="form-select" id="floatingInputGrid" name = "ville">
+                      <option value="Paris">Paris</option>
+                      <option>Lyon</option>
+                      <option>Bordeaux</option>
+                      <option>Pays Basque</option>
+                      
+                    </select>
+                  </div>
+                </div>          
+          </div>
+          <p></p>
+        </div>
+    </div>
 </div>
+<p></p>
+
+    <input class="btn btn-primary btn-lg btn-block" type="submit" value='Submit'>
+
+  </form>
+
+
 {% endblock content %}
