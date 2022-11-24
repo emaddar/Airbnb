@@ -74,9 +74,9 @@ def result(request):
 
     df_clean['private'] = df_clean['bath_describe'].apply(lambda x: 2 if ("private" in x) else 1)
     df_clean['shared'] = df_clean['bath_describe'].apply(lambda x: 0.5 if ("shared" in x) else 1)
-    df_clean['half_bath'] = df_clean['bath_describe'].apply(lambda x: 0.5 if ("shared" in x) else 0)
+    df_clean['half_bath'] = df_clean['bath_describe'].apply(lambda x: 0.5 if ("half-bath" in x) else 1)
 
-    df_clean['number_bath'] = (df_clean['number_bath'] + df_clean['half_bath']) * df_clean['private']*df_clean['shared']
+    df_clean['number_bath'] = (df_clean['number_bath'] * df_clean['half_bath']) * df_clean['private']*df_clean['shared']
 
     q6 = df_clean[["host_id","number_bath"]].groupby("number_bath").count()
 
