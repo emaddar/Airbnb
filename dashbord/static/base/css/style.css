@@ -1,0 +1,27 @@
+.center {
+    text-align : center;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(230, 239, 245);
+    padding: 10px; 
+  }
+  .CharBox{
+    text-align : center;
+    width: 480px;
+    height: 460px;
+  }
+  .special-card {
+
+      text-align : left;
+      color : rgb(29, 161, 242);
+    }
+  body{
+    min-height : 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main{
+    flex-grow: 2;
+  }
+
