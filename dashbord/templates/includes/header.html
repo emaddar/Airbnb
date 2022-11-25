@@ -23,3 +23,27 @@
       </div>
     </header>
   </div>
+
+  <navbar class="navbar bg-base-100">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal p-0">
+        <li><a>Item 1</a></li>
+        <li tabindex="0">
+          <ul class="p-2 bg-base-100">
+            {% if user.is_authenticated %}
+              <li><span class="navbar-text"> Welcome : {{user.get_username}}</span>
+              <a class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}?next={{request.path}}">log out</a></li>
+              {% else %}
+              
+              <li><a href="{% url 'login' %}" >Login</a></li>
+              <li><a href="{% url 'signup' %}" >Sign-up</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
+  </navbar>

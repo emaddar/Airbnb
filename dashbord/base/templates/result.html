@@ -18,8 +18,10 @@
 
 
 <h1>Vous avez choisi la ville : {{city}}</h1>
-<h5>Le nombre d’hosst et le nombre de review par quartier : </h5> 
+<h5>Le nombre d’hosst et le nombre de review par quartier : </h5>
+<div class="overflow-x-auto overflow-y-scroll h-64 ">
 {{q1|safe}}
+</div>
 <br><br>
 
 <h5>Le pourcentage d’acceptation moyen : {{accept_rate}} %</h5>
@@ -37,14 +39,17 @@
 
 
 <h5>En fonction du type de room, le nombre moyen d’amenities et l'écart type :</h5>
-{{amenities|safe}}
-
+<div class="overflow-x-auto overflow-y-scroll h-64 ">
+  {{amenities|safe}}
+</div>
 <h5>Le prix median par type de room, le maximum, le minimum, le premier et le troisième quartile :</h5>
+<div class="overflow-x-auto ">
 {{q5|safe}}
-
+</div>
 <h5>Par valeur de salle de bain :</h5>
+<div class="overflow-x-auto overflow-y-scroll h-64 ">
 {{q6|safe}}
-
+</div>
 
 <h5>La corrélation entre le nombre de reviews et la taille de la description en terme de nombre de caractères : {{q7}}</h5>
 

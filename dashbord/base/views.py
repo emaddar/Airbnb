@@ -114,7 +114,7 @@ def result(request):
         q8=len(df_merge[["host_name","reviewer_name"]][mask])/len(df_merge)*100
         return render(request, 'result.html', {
                                                 'city':city,
-                                                'q1': q1.reset_index().to_html(classes="tab"),
+                                                'q1': q1.reset_index().to_html(classes="table table-compact w-full"),
                                                 'accept_rate' : accept_rate,
                                                 'response_rate' : response_rate,
                                                 'email' : email,
@@ -125,9 +125,9 @@ def result(request):
                                                 'work_pourcent' : work_pourcent,
                                                 'vide' : vide,
                                                 'vide_pourcent' : vide_pourcent,
-                                                'amenities' : amenities.reset_index().to_html(classes="tab"),
-                                                'q5' : q5.reset_index().to_html(classes="tab"),
-                                                'q6' : q6.reset_index().to_html(classes="tab"),
+                                                'amenities' : amenities.reset_index().to_html(classes="table table-compact w-full"),
+                                                'q5' : q5.reset_index().to_html(classes="table table-compact w-full"),
+                                                'q6' : q6.reset_index().to_html(classes="table table-compact w-full"),
                                                 'q7' : round(q7,2),
                                                 'q8' : round(q8,2),
                                                 
