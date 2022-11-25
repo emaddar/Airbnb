@@ -8,10 +8,18 @@ from . import forms                                                     # For Si
 from django.urls import reverse_lazy                                    # For signUp page methode 2
 from django.contrib.auth.decorators import login_required
 
+import plotly.express as px
 
 # Create your views here.
 def home_view(request):
-    return render(request, "index.html")
+
+    df = pd.read_csv(f"../pandas/CSV/bordeaux/listings_bordeaux.csv")
+    fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',center=dict(lat=df.latitude.mean(), lon=df.longitude.mean()), zoom=7.5,
+                        mapbox_style="carto-darkmatter")
+                
+    fig.update_layout(title = '', title_x=0.5)  
+    fig.show()
+    return render(request, "index.html",context={'fig': fig.to_html()})
 
 @login_required
 def result(request):
@@ -94,7 +102,7 @@ def result(request):
         
         q7=df_simple["number_of_reviews"].corr(df_simple['len_description'])
         
-        df_reviews.columns=['Unnamed: 0', 'listing_id', 'id_review', 'date', 'reviewer_id', 'reviewer_name']
+        df_reviews.columns=['listing_id', 'id_review', 'date', 'reviewer_id', 'reviewer_name']
         df_reviews= df_reviews[['listing_id', 'id_review', 'date', 'reviewer_id',
         'reviewer_name']]
         df_merge = df_reviews.merge(df, how='left',left_on='listing_id',right_on='id') 
