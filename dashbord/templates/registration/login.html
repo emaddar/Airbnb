@@ -28,13 +28,10 @@
     </div>
 </div>
 
-<div class="container" >
+<div class="w-full flex flex-col justify-center items-center" >
     <div class="row">
 
 
-      <div class="col-sm">
-        {% comment %} One of three columns {% endcomment %}
-      </div>
 
 
       <div class="col-sm">
@@ -48,21 +45,22 @@
                                 {% if error_message %}
                                     <p class="bg-danger p-d ml-b">{{ error_message }}</p>
                                 {% endif %}
-                                <div class="form-group clearfix">
+                                <div class="py-4">
                                     <label for="username" class="col-md-4 control-label ">Username:</label>
                                     <div class="col-sm">
-                                        <input name="username" value="" type="text" class="form-control" />
+                                        <input name="username" value="" type="text" class="input input-bordered input-secondary w-full max-w-xs" />
                                     </div>
                                 </div>
-                                <div class="form-group clearfix">
+                                <div class="py-4">
                                     <label for="password" class="col-md-4 control-label text-right">Password:</label>
                                     <div class="col-sm">
-                                        <input name="password" type="password" class="form-control" />
+                                        <input name="password" type="password"  class="input input-bordered input-secondary w-full max-w-xs" />
                                     </div>
                                 </div>
-                                <div class="col-sm col-md-offset-4">
-                                    <input name="login" type="submit" value="Login" class="btn btn-success btn-lg" /> &nbsp;
+                                <div class="py-4">
+                                    <input name="login" type="submit" value="Login" class="btn btn-outline btn-secondary rounded-lg" /> &nbsp;
                                 </div>
+                                <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
                             </div>
       </div>
 
@@ -90,6 +88,6 @@
 </form>
 
 {# Assumes you set up the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
 
 {% endblock %}
