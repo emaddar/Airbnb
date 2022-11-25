@@ -19,6 +19,41 @@
 
 <h1>Vous avez choisi la ville : {{city}}</h1>
 <h5>Le nombre d’hosst et le nombre de review par quartier : </h5>
+
+
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{nc|safe}},
+      datasets: [{
+        label: '# of Votes',
+        data: {{hc|safe}},
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+
+
+
 <div class="overflow-x-auto overflow-y-scroll h-64 ">
 {{q1|safe}}
 </div>

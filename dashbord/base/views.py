@@ -39,7 +39,8 @@ def result(request):
         "host count": s["host_id"].nunique(), 
         "sum reviews": s["number_of_reviews"].sum(), 
             }))
-
+        nc = q1.reset_index().iloc[:,0].values.tolist()
+        hc = q1.reset_index().iloc[:,1].values.tolist()
         df_host_acceptance_rate = df["host_acceptance_rate"].str.rstrip('%').astype(float)
 
         accept_rate = round(df_host_acceptance_rate.mean(),2)
@@ -115,6 +116,8 @@ def result(request):
         return render(request, 'result.html', {
                                                 'city':city,
                                                 'q1': q1.reset_index().to_html(classes="table table-compact w-full"),
+                                                'nc' : nc,
+                                                'hc' : hc, 
                                                 'accept_rate' : accept_rate,
                                                 'response_rate' : response_rate,
                                                 'email' : email,
