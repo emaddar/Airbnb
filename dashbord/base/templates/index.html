@@ -10,69 +10,52 @@
 
     </ul>
 </div> {% endcomment %}
-
+<figure class="h-fit" >
 {{fig|safe}}
-
+</figure>
 <form action="result">
     {% csrf_token %}
-    <div class="row g-2">
+    <div class="flex flex-col gap-8 justify-center items-center">
+        <label for="floatingInputGrid" >Ville : </label>
+        <select class="select select-secondary w-full max-w-xs" id="floatingInputGrid" name = "ville">
+            
+
+          <optgroup label="France">
+            <option value="Paris">Paris</option>
+            <option>Lyon</option>
+            <option>Bordeaux</option>
+            <option value = "Pays_Basque">Pays Basque</option>
+          </optgroup>
 
 
-              
-                  <!-- Ville -->
-                <div class="col-md">
-                  <div class="form-floating">
-                    <label for="floatingInputGrid">Ville : </label>
-                    <select class="form-select" id="floatingInputGrid" name = "ville">
-                       
-
-                    <optgroup label="France">
-                    <option value="Paris">Paris</option>
-                      <option>Lyon</option>
-                      <option>Bordeaux</option>
-                      <option value = "Pays_Basque">Pays Basque</option>
-                    </optgroup>
+          <optgroup label="Belgique">
+              <option>Antwerp</option>
+              <option>Brussels</option>
+              <option>Ghent</option>
+          </optgroup>
 
 
-                    <optgroup label="Belgique">
-                        <option>Antwerp</option>
-                          <option>Brussels</option>
-                          <option>Ghent</option>
-                    </optgroup>
-
-
-                    <optgroup label="Netherlands">
-                        <option>Amsterdam</option>
-                        <option>Rotterdam</option>
-                          <option value="The_Hague">The Hague</option>
-                    </optgroup>
+          <optgroup label="Netherlands">
+              <option>Amsterdam</option>
+              <option>Rotterdam</option>
+              <option value="The_Hague">The Hague</option>
+          </optgroup>
 
 
 
-                    <optgroup label="United Kingdom">                        
-                        <option>London</option>
-                        <option>Bristol</option>
-                        <option value = "Greater_Manchester">Greater Manchester</option>
-                          <option>Edinburgh</option>
-                    </optgroup>
+          <optgroup label="United Kingdom">                        
+              <option>London</option>
+              <option>Bristol</option>
+              <option value = "Greater_Manchester">Greater Manchester</option>
+              <option>Edinburgh</option>
+          </optgroup>
 
 
-                    optgroup[label="France"]
-                    {
-                    color: red;
-                    }
-
-                    </select>
-                  </div>
-                </div>          
-          </div>
-          <p></p>
+        </select>
+        <input class="btn btn-active btn-secondary rounded-lg" type="submit" value='Submit'>
         </div>
-    </div>
-</div>
-<p></p>
 
-    <input class="btn btn-primary btn-lg" type="submit" value='Submit'>
+    
 
   </form>
 
