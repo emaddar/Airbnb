@@ -11,11 +11,11 @@
         <ul class="menu menu-horizontal p-0">
             
               
-          <li><a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-outline btn-secondary rounded-lg">log out</a></li>
+          <li class="list-none"><a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-outline btn-secondary rounded-lg">log out</a></li>
       {% else %}
               
-          <li><a href="{% url 'login' %}"  class="btn btn-outline btn-secondary rounded-lg" >Login</a></li>
-          <li><a href="{% url 'signup' %}" class="btn btn-outline btn-secondary rounded-lg" >Sign-up</a></li>
+          <li class="list-none pr-4"><a href="{% url 'login' %}"  class="btn btn-outline btn-secondary rounded-lg" >Login</a></li>
+          <li class="list-none"><a href="{% url 'signup' %}" class="btn btn-outline btn-secondary rounded-lg" >Sign-up</a></li>
             
         </ul>
 
