@@ -1,49 +1,25 @@
 
-
-<div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+<navbar class="navbar bg-base-100">
+    <div class="flex-1">
       <a href="/" class="nav-link px-2 link-secondary">
         <svg class="bi me-2" width="100" height="10" role="img" aria-label="Bootstrap"><i class="fa-sharp fa-solid fa-house fa-2xl"></i></svg>
       </a>
-  
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="" class="nav-link px-2 link-dark">About</a></li>
-      </ul>
-        
-
-      <div class="col-md-3 text-end">
-        {% if user.is_authenticated %}
-          <span class="navbar-text"> Welcome : {{user.get_username}}</span>
-          <a class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}?next={{request.path}}">log out</a>
-          {% else %}
-            <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
-            <a href="{% url 'signup' %}" class="btn btn-primary">Sign-up</a>
-          {% endif %}
-
-      </div>
-    </header>
-  </div>
-
-  <navbar class="navbar bg-base-100">
-    <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
     </div>
     <div class="flex-none">
-      <ul class="menu menu-horizontal p-0">
-        <li><a>Item 1</a></li>
-        <li tabindex="0">
-          <ul class="p-2 bg-base-100">
-            {% if user.is_authenticated %}
-              <li><span class="navbar-text"> Welcome : {{user.get_username}}</span>
-              <a class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}?next={{request.path}}">log out</a></li>
-              {% else %}
+      {% if user.is_authenticated %}
+        <span class="navbar-text mr-8"> Welcome : {{user.get_username}}</span>
+        <ul class="menu menu-horizontal p-0">
+            
               
-              <li><a href="{% url 'login' %}" >Login</a></li>
-              <li><a href="{% url 'signup' %}" >Sign-up</a></li>
-            {% endif %}
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
-      </ul>
+          <li><a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-outline btn-secondary rounded-lg">log out</a></li>
+      {% else %}
+              
+          <li><a href="{% url 'login' %}"  class="btn btn-outline btn-secondary rounded-lg" >Login</a></li>
+          <li><a href="{% url 'signup' %}" class="btn btn-outline btn-secondary rounded-lg" >Sign-up</a></li>
+            
+        </ul>
+
+        {% endif %}
+    
     </div>
-  </navbar>
+</navbar>
