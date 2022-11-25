@@ -8,10 +8,24 @@ from . import forms                                                     # For Si
 from django.urls import reverse_lazy                                    # For signUp page methode 2
 from django.contrib.auth.decorators import login_required
 
+import plotly.express as px
 
 # Create your views here.
 def home_view(request):
-    return render(request, "index.html")
+    
+    liste= []
+    for city in ["paris","bordeaux","pays_basque",'lyon',"amsterdam","antwerp","bristol","brussels","ghent","edinburgh","greater_manchester","london","rotterdam","the_hague"]:
+        data = pd.read_csv(f"./static/base/CSV/{city}/listings_{city}.csv")
+        data= data[["latitude","longitude"]]
+        liste.append(data)
+    df = pd.concat(liste)
+
+    
+    fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',center=dict(lat=df.latitude.mean(), lon=df.longitude.mean()), zoom=2,
+                        mapbox_style="carto-darkmatter")
+                
+    fig.update_layout(title = '', title_x=0.5)  
+    return render(request, "index.html",context={'fig': fig.to_html({'auto_play':False})})
 
 @login_required
 def result(request):
@@ -20,8 +34,8 @@ def result(request):
 
     if (request.user.last_name == "France" and city in ["Paris", "Lyon","Bordeaux","Pays_Basque"]) or (request.user.last_name == "Belgium" and city in ["Antwerp", "Brussels","Ghent"]) or (request.user.last_name == "Netherlands" and city in ["Amsterdam", "Rotterdam","The_Hague"]) or (request.user.last_name == "United Kingdom" and city in ["London", "Bristol","Greater_Manchester", "Edinburgh"]):
 
-        df = pd.read_csv(f"../pandas/CSV/{city.lower()}/listings_{city.lower()}.csv")
-        df_reviews = pd.read_csv(f"../pandas/CSV/{city.lower()}/reviews_{city.lower()}.csv")
+        df = pd.read_csv(f"./static/base/CSV/{city.lower()}/listings_{city.lower()}.csv")
+        df_reviews = pd.read_csv(f"./static/base/CSV/{city.lower()}/reviews_{city.lower()}.csv")
 
         q1 = df.groupby("neighbourhood_cleansed").apply(lambda s: pd.Series({ 
         "host count": s["host_id"].nunique(), 
@@ -94,7 +108,7 @@ def result(request):
         
         q7=df_simple["number_of_reviews"].corr(df_simple['len_description'])
         
-        df_reviews.columns=['Unnamed: 0', 'listing_id', 'id_review', 'date', 'reviewer_id', 'reviewer_name']
+        df_reviews.columns=['listing_id', 'id_review', 'date', 'reviewer_id', 'reviewer_name']
         df_reviews= df_reviews[['listing_id', 'id_review', 'date', 'reviewer_id',
         'reviewer_name']]
         df_merge = df_reviews.merge(df, how='left',left_on='listing_id',right_on='id') 
