@@ -17,8 +17,9 @@
     </style>
 
 
-<h1>Vous avez choisi la ville : {{city}}</h1>
-<h5>Le nombre d’hosst et le nombre de review par quartier : </h5>
+<h1 class="text-4xl">Vous avez choisi la ville : {{city}}</h1>
+<br><br>
+<h5 class="text-xl py-8" class="text-xl">Le nombre d’hosst et le nombre de review par quartier : </h5>
 
 
 
@@ -57,13 +58,13 @@
 <div class="overflow-x-auto overflow-y-scroll h-64 ">
 {{q1|safe}}
 </div>
-<br><br>
-
-<h5>Le pourcentage d’acceptation moyen : {{accept_rate}} %</h5>
-<h5>et Le pourcentage de réponse moyen des hosts : {{response_rate}} %</h5>
 
 
-<h5>
+<h5 class="text-xl py-8">Le pourcentage d’acceptation moyen : {{accept_rate}} %</h5>
+<h5 class="text-xl py-8">et Le pourcentage de réponse moyen des hosts : {{response_rate}} %</h5>
+
+
+<h5 class="text-xl py-8">
     <ul>
     <li> Il y a {{email}} personnes qui utilise un email pour la vérification soit {{email_pourcent}} % </li>
     <li> Il y a {{phone}} personnes qui utilise un téléphone pour la vérification soit {{phone_pourcent}} % </li>
@@ -73,23 +74,23 @@
 </h5>
 
 
-<h5>En fonction du type de room, le nombre moyen d’amenities et l'écart type :</h5>
+<h5 class="text-xl py-8">En fonction du type de room, le nombre moyen d’amenities et l'écart type :</h5>
 <div class="overflow-x-auto overflow-y-scroll h-64 ">
   {{amenities|safe}}
 </div>
-<h5>Le prix median par type de room, le maximum, le minimum, le premier et le troisième quartile :</h5>
+<h5 class="text-xl py-8">Le prix median par type de room, le maximum, le minimum, le premier et le troisième quartile :</h5>
 <div class="overflow-x-auto ">
 {{q5|safe}}
 </div>
-<h5>Par valeur de salle de bain :</h5>
+<h5 class="text-xl py-8">Par valeur de salle de bain :</h5>
 <div class="overflow-x-auto overflow-y-scroll h-64 ">
 {{q6|safe}}
 </div>
 
-<h5>La corrélation entre le nombre de reviews et la taille de la description en terme de nombre de caractères : {{q7}}</h5>
+<h5 class="text-xl py-8">La corrélation entre le nombre de reviews et la taille de la description en terme de nombre de caractères : {{q7}}</h5>
 
 
 
-<h5>Le pourcentage général de séjour où le nom de l'host est identique au nom du reviewer {{q8}}%</h5>
+<h5 class="text-xl py-8">Le pourcentage général de séjour où le nom de l'host est identique au nom du reviewer {{q8}}%</h5>
 
 {% endblock content %}
