@@ -13,12 +13,10 @@ import plotly.express as px
 # Create your views here.
 def home_view(request):
     
-    liste= []
-    for city in ["paris","bordeaux","pays_basque",'lyon',"amsterdam","antwerp","bristol","brussels","ghent","edinburgh","greater_manchester","london","rotterdam","the_hague"]:
-        data = pd.read_csv(f"./static/base/CSV/{city}/listings_{city}.csv")
-        data= data[["latitude","longitude"]]
-        liste.append(data)
-    df = pd.concat(liste)
+    
+    df = pd.read_csv(f"./static/base/CSV/concat.csv")
+        
+    
 
     
     fig = px.scatter_mapbox(df,lat='latitude',lon='longitude',center=dict(lat=df.latitude.mean(), lon=df.longitude.mean()), zoom=2,
