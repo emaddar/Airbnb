@@ -14,7 +14,7 @@ import plotly.express as px
 def home_view(request):
     
     
-    df = pd.read_csv(f"./static/base/CSV/concat.csv")
+    df = pd.read_csv(f"https://raw.githubusercontent.com/StevenDelval/csv_projet_airbnb/main/concat.csv")
         
     
 
@@ -32,8 +32,8 @@ def result(request):
 
     if (request.user.last_name == "France" and city in ["Paris", "Lyon","Bordeaux","Pays_Basque"]) or (request.user.last_name == "Belgium" and city in ["Antwerp", "Brussels","Ghent"]) or (request.user.last_name == "Netherlands" and city in ["Amsterdam", "Rotterdam","The_Hague"]) or (request.user.last_name == "United Kingdom" and city in ["London", "Bristol","Greater_Manchester", "Edinburgh"]):
 
-        df = pd.read_csv(f"./static/base/CSV/{city.lower()}/listings_{city.lower()}.csv")
-        df_reviews = pd.read_csv(f"./static/base/CSV/{city.lower()}/reviews_{city.lower()}.csv")
+        df = pd.read_csv(f"https://raw.githubusercontent.com/StevenDelval/csv_projet_airbnb/main/{city.lower()}/listings_{city.lower()}.csv")
+        df_reviews = pd.read_csv(f"https://raw.githubusercontent.com/StevenDelval/csv_projet_airbnb/main/{city.lower()}/reviews_{city.lower()}.csv")
 
         q1 = df.groupby("neighbourhood_cleansed").apply(lambda s: pd.Series({ 
         "host count": s["host_id"].nunique(), 
