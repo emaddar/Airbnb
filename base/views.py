@@ -102,8 +102,7 @@ def result(request):
 
         q6 = df_clean[["host_id","number_bath"]].groupby("number_bath").count()
 
-        df_simple = df[["number_of_reviews",'description']]
-        df_simple["len_description"] = df_simple['description'].apply(lambda x: len(str(x)))
+        df_simple = df[["number_of_reviews",'len_description']]
         
         q7=df_simple["number_of_reviews"].corr(df_simple['len_description'])
         
