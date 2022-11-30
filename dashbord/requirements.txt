@@ -1,0 +1,7 @@
+dj_database_url==1.0.0
+Django==3.2.12
+pandas==1.5.1
+plotly==5.8.2
+python-dotenv==0.21.0
+django-crispy-forms==1.14.0
+django-widget-tweaks==1.4.12
