@@ -28,9 +28,9 @@ if not IS_HEROKU:
     from dotenv import load_dotenv
     load_dotenv()
 
-if 'SECRET_KEY' in os.environ:
-    SECRET_KEY = os.environ["SECRET_KEY"]
-
+#if 'SECRET_KEY' in os.environ:
+#    SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = "000"
 
 # Generally avoid wildcards(*). However since Heroku router provides hostname validation it is ok
 if IS_HEROKU:
