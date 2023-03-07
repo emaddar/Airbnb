@@ -11,7 +11,7 @@ RUN pip install --upgrade pip && \
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8004"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8003"]
 
 # docker build -t airbnb .
 # docker run -p 8003:8003 airbnb 

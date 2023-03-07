@@ -13,7 +13,6 @@ from django.test.runner import DiscoverRunner
 from pathlib import Path
 
 
-IS_HEROKU = "DYNO" in os.environ
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,23 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 
-if not IS_HEROKU:
-    from dotenv import load_dotenv
-    load_dotenv()
+
 
 #if 'SECRET_KEY' in os.environ:
 #    SECRET_KEY = os.environ["SECRET_KEY"]
 SECRET_KEY = "000"
 
 # Generally avoid wildcards(*). However since Heroku router provides hostname validation it is ok
-if IS_HEROKU:
-    ALLOWED_HOSTS = ["*"]
-else:
-    ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if not IS_HEROKU:
-    DEBUG = True
+DEBUG = True
 
 # Application definition
 
